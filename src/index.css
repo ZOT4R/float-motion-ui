@@ -132,16 +132,45 @@ All colors MUST be HSL.
 
 @layer components {
   .gaming-card {
-    @apply bg-gradient-to-br from-card to-card/80 border border-border/50 rounded-xl;
-    @apply backdrop-blur-sm transition-all duration-300 hover:scale-105;
-    @apply hover:shadow-[var(--shadow-gaming)] hover:border-primary/30;
+    @apply bg-gradient-to-br from-card/70 to-card/50 border border-border/30 rounded-xl;
+    @apply backdrop-blur-md transition-all duration-500;
+    @apply hover:shadow-[var(--shadow-gaming)] hover:border-primary/40;
     box-shadow: var(--shadow-card);
-    transform: perspective(1000px) rotateX(2deg) rotateY(-1deg);
     transform-style: preserve-3d;
+    background: rgba(hsl(var(--card)), 0.7);
+    backdrop-filter: blur(12px);
   }
 
-  .gaming-card:hover {
-    transform: perspective(1000px) rotateX(1deg) rotateY(-0.5deg) scale(1.02);
+  .gaming-card-left {
+    transform: perspective(1200px) rotateX(3deg) rotateY(8deg) rotateZ(-1deg);
+  }
+
+  .gaming-card-left:hover {
+    transform: perspective(1200px) rotateX(2deg) rotateY(6deg) rotateZ(-0.5deg) scale(1.02);
+  }
+
+  .gaming-card-right {
+    transform: perspective(1200px) rotateX(3deg) rotateY(-8deg) rotateZ(1deg);
+  }
+
+  .gaming-card-right:hover {
+    transform: perspective(1200px) rotateX(2deg) rotateY(-6deg) rotateZ(0.5deg) scale(1.02);
+  }
+
+  .gaming-card-top {
+    transform: perspective(1200px) rotateX(6deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .gaming-card-top:hover {
+    transform: perspective(1200px) rotateX(4deg) rotateY(0deg) rotateZ(0deg) scale(1.02);
+  }
+
+  .gaming-card-center {
+    transform: perspective(1200px) rotateX(4deg) rotateY(-2deg) rotateZ(0deg);
+  }
+
+  .gaming-card-center:hover {
+    transform: perspective(1200px) rotateX(2deg) rotateY(-1deg) rotateZ(0deg) scale(1.02);
   }
 
   .gaming-button {

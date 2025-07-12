@@ -14,7 +14,7 @@ const navigation = [
 
 export function GameSidebar() {
   return (
-    <div className="w-20 gaming-card m-4 flex flex-col items-center py-6 animate-slide-in-left" style={{ height: 'calc(100vh - 2rem)' }}>
+    <div className="w-20 gaming-card gaming-card-left m-4 flex flex-col items-center py-6 animate-slide-in-left" style={{ height: 'calc(100vh - 2rem)' }}>
       {/* Logo */}
       <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl mb-8 flex items-center justify-center glow-border">
         <span className="text-2xl font-bold text-primary-foreground">R</span>

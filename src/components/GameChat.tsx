@@ -18,7 +18,7 @@ const messages = [
 
 export function GameChat() {
   return (
-    <div className="w-80 gaming-card m-4 flex flex-col animate-slide-in-right" style={{ height: 'calc(100vh - 2rem)' }}>
+    <div className="w-80 gaming-card gaming-card-right m-4 flex flex-col animate-slide-in-right" style={{ height: 'calc(100vh - 2rem)' }}>
       {/* Header */}
       <div className="p-4 border-b border-gaming-border/30">
         <h3 className="font-semibold text-lg mb-3">Group Chat</h3>
