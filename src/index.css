@@ -8,35 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 14% 8%;
+    --foreground: 40 100% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 16% 12%;
+    --card-foreground: 40 100% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 16% 12%;
+    --popover-foreground: 40 100% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 28 100% 58%;
+    --primary-foreground: 220 14% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 40 100% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 16% 16%;
+    --muted-foreground: 220 8% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 28 100% 58%;
+    --accent-foreground: 220 14% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 100% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 16% 20%;
+    --input: 220 16% 16%;
+    --ring: 28 100% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Gaming-specific design tokens */
+    --gaming-primary: 28 100% 58%;
+    --gaming-secondary: 45 100% 55%;
+    --gaming-dark: 220 14% 8%;
+    --gaming-card: 220 16% 12%;
+    --gaming-card-hover: 220 16% 16%;
+    --gaming-border: 220 16% 20%;
+    --gaming-glow: 28 100% 58%;
+
+    /* Gradients */
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-primary)) 0%, hsl(var(--gaming-secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--gaming-card)) 0%, hsl(220 16% 14%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--gaming-dark)) 0%, hsl(220 16% 12%) 50%, hsl(var(--gaming-card)) 100%);
+
+    /* Shadows and glows */
+    --shadow-gaming: 0 10px 30px -10px hsl(var(--gaming-primary) / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(220 14% 4% / 0.4);
+    --glow-primary: 0 0 20px hsl(var(--gaming-primary) / 0.5);
+    --glow-hover: 0 0 30px hsl(var(--gaming-primary) / 0.7);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -102,4 +128,94 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  .gaming-card {
+    @apply bg-gradient-to-br from-card to-card/80 border border-border/50 rounded-xl;
+    @apply backdrop-blur-sm transition-all duration-300 hover:scale-105;
+    @apply hover:shadow-[var(--shadow-gaming)] hover:border-primary/30;
+    box-shadow: var(--shadow-card);
+  }
+
+  .gaming-button {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground;
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-[var(--glow-hover)];
+    @apply active:scale-95;
+  }
+
+  .floating-card {
+    @apply gaming-card relative overflow-hidden;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glow-border {
+    @apply relative before:absolute before:inset-0 before:rounded-xl;
+    @apply before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-accent/50;
+    @apply before:-z-10;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--gaming-primary) / 0.5);
+  }
+
+  .stat-card {
+    @apply gaming-card p-4 text-center relative overflow-hidden;
+    @apply before:absolute before:inset-0 before:bg-gradient-to-br;
+    @apply before:from-primary/10 before:to-transparent before:pointer-events-none;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delay {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-5px) rotate(0deg); }
+  75% { transform: translateY(-15px) rotate(-1deg); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

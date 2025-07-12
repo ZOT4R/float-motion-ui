@@ -61,6 +61,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				gaming: {
+					primary: 'hsl(var(--gaming-primary))',
+					secondary: 'hsl(var(--gaming-secondary))',
+					dark: 'hsl(var(--gaming-dark))',
+					card: 'hsl(var(--gaming-card))',
+					'card-hover': 'hsl(var(--gaming-card-hover))',
+					border: 'hsl(var(--gaming-border))',
+					glow: 'hsl(var(--gaming-glow))'
 				}
 			},
 			borderRadius: {
