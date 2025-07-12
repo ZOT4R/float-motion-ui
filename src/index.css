@@ -136,6 +136,12 @@ All colors MUST be HSL.
     @apply backdrop-blur-sm transition-all duration-300 hover:scale-105;
     @apply hover:shadow-[var(--shadow-gaming)] hover:border-primary/30;
     box-shadow: var(--shadow-card);
+    transform: perspective(1000px) rotateX(2deg) rotateY(-1deg);
+    transform-style: preserve-3d;
+  }
+
+  .gaming-card:hover {
+    transform: perspective(1000px) rotateX(1deg) rotateY(-0.5deg) scale(1.02);
   }
 
   .gaming-button {
