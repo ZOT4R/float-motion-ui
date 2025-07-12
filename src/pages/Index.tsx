@@ -7,31 +7,33 @@ import { GameChat } from "@/components/GameChat";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gaming-dark via-background to-gaming-card flex">
-      {/* Sidebar */}
-      <GameSidebar />
-      
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Top Bar */}
-        <TopBar />
+    <div className="min-h-screen bg-gradient-to-br from-gaming-dark via-background to-gaming-card p-4">
+      <div className="flex gap-4 h-screen">
+        {/* Sidebar */}
+        <GameSidebar />
         
-        {/* Main Content Area */}
-        <div className="flex-1 flex">
-          {/* Content */}
-          <div className="flex-1 p-6 space-y-8 overflow-y-auto">
-            {/* Hero Section */}
-            <HeroSection />
-            
-            {/* Character Cards */}
-            <CharacterCards />
-            
-            {/* Stats Section */}
-            <StatsSection />
-          </div>
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col gap-4">
+          {/* Top Bar */}
+          <TopBar />
           
-          {/* Chat Sidebar */}
-          <GameChat />
+          {/* Main Content Area */}
+          <div className="flex-1 flex gap-4">
+            {/* Content */}
+            <div className="flex-1 gaming-card p-6 space-y-8 overflow-y-auto">
+              {/* Hero Section */}
+              <HeroSection />
+              
+              {/* Character Cards */}
+              <CharacterCards />
+              
+              {/* Stats Section */}
+              <StatsSection />
+            </div>
+            
+            {/* Chat Sidebar */}
+            <GameChat />
+          </div>
         </div>
       </div>
       

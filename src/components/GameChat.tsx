@@ -18,9 +18,9 @@ const messages = [
 
 export function GameChat() {
   return (
-    <div className="w-80 bg-gaming-card border-l border-gaming-border flex flex-col animate-slide-in-right">
+    <div className="w-80 gaming-card m-4 flex flex-col animate-slide-in-right" style={{ height: 'calc(100vh - 2rem)' }}>
       {/* Header */}
-      <div className="p-4 border-b border-gaming-border">
+      <div className="p-4 border-b border-gaming-border/30">
         <h3 className="font-semibold text-lg mb-3">Group Chat</h3>
         
         {/* Online users */}
@@ -67,7 +67,7 @@ export function GameChat() {
       </div>
       
       {/* Input */}
-      <div className="p-4 border-t border-gaming-border">
+      <div className="p-4 border-t border-gaming-border/30">
         <div className="flex space-x-2">
           <Input 
             placeholder="Type message here..." 

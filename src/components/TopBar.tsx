@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function TopBar() {
   return (
-    <div className="h-16 bg-gaming-card border-b border-gaming-border flex items-center justify-between px-6 animate-fade-in-up">
+    <div className="h-16 gaming-card mx-4 mt-4 flex items-center justify-between px-6 animate-fade-in-up">
       {/* Greeting */}
       <div>
         <h1 className="text-lg font-semibold">
